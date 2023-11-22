@@ -1,0 +1,68 @@
+disable_root: false
+mount_default_fields: [~, ~, 'auto', 'defaults,nofail', '0', '2']
+resize_rootfs_tmp: /dev
+ssh_pwauth: 1
+preserve_hostname: false
+manual_cache_clean: true
+
+datasource_list:
+   - Vultr
+
+cloud_init_modules:
+   - migrator
+   - seed_random
+   - bootcmd
+   - write-files
+   - growpart
+   - resizefs
+   - disk_setup
+   - mounts
+   - set_hostname
+   - update_hostname
+   - update_etc_hosts
+   - ca-certs
+   - rsyslog
+   - users-groups
+   - ssh
+   - yum-add-repo
+
+cloud_config_modules:
+   - ssh-import-id
+   - keyboard
+   - locale
+   - set-passwords
+   - ntp
+   - timezone
+   - disable-ec2-metadata
+   - runcmd
+
+cloud_final_modules:
+   - package-update-upgrade-install
+   - write-files-deferred
+   - puppet
+   - chef
+   - ansible
+   - mcollective
+   - salt-minion
+   - scripts-vendor
+   - scripts-per-once
+   - scripts-per-boot
+   - scripts-per-instance
+   - scripts-user
+   - ssh-authkey-fingerprints
+   - keys-to-console
+   - install-hotplug
+   - phone-home
+   - final-message
+   - power-state-change
+
+system_info:
+   distro: almalinux
+   paths:
+      cloud_dir: /var/lib/cloud/
+      templates_dir: /etc/cloud/templates/
+   ssh_svcname: sshd
+
+updates:
+   network:
+      when: ['boot', 'boot-legacy', 'boot-new-instance', 'hotplug']

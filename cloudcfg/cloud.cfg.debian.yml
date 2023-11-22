@@ -1,0 +1,73 @@
+disable_root: false
+mount_default_fields: [~, ~, 'auto', 'defaults,nofail', '0', '2']
+resize_rootfs_tmp: /dev
+ssh_pwauth: 1
+preserve_hostname: false
+manual_cache_clean: true
+
+datasource_list:
+   - Vultr
+
+cloud_init_modules:
+   - migrator
+   - seed_random
+   - bootcmd
+   - write-files
+   - growpart
+   - resizefs
+   - disk_setup
+   - mounts
+   - set_hostname
+   - update_hostname
+   - update_etc_hosts
+   - ca-certs
+   - rsyslog
+   - users-groups
+   - ssh
+
+cloud_config_modules:
+   - ssh-import-id
+   - locale
+   - set-passwords
+   - grub-dpkg
+   - apt-pipelining
+   - apt-configure
+   - ntp
+   - timezone
+   - disable-ec2-metadata
+   - runcmd
+   - byobu
+
+cloud_final_modules:
+   - package-update-upgrade-install
+   - fan
+   - puppet
+   - chef
+   - ansible
+   - salt-minion
+   - mcollective
+   - scripts-vendor
+   - scripts-per-once
+   - scripts-per-boot
+   - scripts-per-instance
+   - scripts-user
+   - ssh-authkey-fingerprints
+   - keys-to-console
+   - phone-home
+   - final-message
+   - power-state-change
+   - write-files-deferred
+
+apt:
+  preserve_sources_list: true
+
+system_info:
+   distro: debian
+   paths:
+      cloud_dir: /var/lib/cloud/
+      templates_dir: /etc/cloud/templates/
+      upstart_dir: /etc/init/
+   ssh_svcname: ssh
+updates:
+   network:
+      when: ['boot', 'boot-legacy', 'boot-new-instance', 'hotplug']
