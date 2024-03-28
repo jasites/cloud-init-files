@@ -1,13 +1,3 @@
-disable_root: false
-mount_default_fields: [~, ~, 'auto', 'defaults,nofail', '0', '2']
-resize_rootfs_tmp: /dev
-ssh_pwauth: 1
-preserve_hostname: false
-manual_cache_clean: true
-
-datasource_list:
-  - Vultr
-
 cloud_init_modules:
   - migrator
   - seed_random
@@ -75,7 +65,3 @@ system_info:
     templates_dir: /etc/cloud/templates/
     upstart_dir: /etc/init/
   ssh_svcname: ssh
-
-updates:
-  network:
-    when: ['boot', 'boot-legacy', 'boot-new-instance', 'hotplug']
