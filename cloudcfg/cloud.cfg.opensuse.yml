@@ -49,8 +49,8 @@ cloud_final_modules:
 system_info:
   distro: opensuse
   network:
-    renderers: ['networkd']
-    activators: ['networkd']
+    renderers: ['network-manager']
+    activators: ['network-manager']
   paths:
     cloud_dir: /var/lib/cloud/
     templates_dir: /etc/cloud/templates/
