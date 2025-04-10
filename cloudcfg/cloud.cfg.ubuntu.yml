@@ -24,7 +24,7 @@ cloud_config_modules:
   - grub-dpkg
   - apt-pipelining
   - apt-configure
-  - ubuntu-advantage
+  - ubuntu-pro
   - ntp
   - timezone
   - disable-ec2-metadata
