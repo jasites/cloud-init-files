@@ -57,4 +57,5 @@ system_info:
   ssh_svcname: sshd
 updates:
   network:
-    when: ['boot-new-instance']
+    when: ['boot', 'boot-legacy', 'boot-new-instance', 'hotplug']
+
