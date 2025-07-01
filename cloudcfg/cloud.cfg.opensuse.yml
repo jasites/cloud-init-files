@@ -58,4 +58,3 @@ system_info:
 updates:
   network:
     when: ['boot', 'boot-legacy', 'boot-new-instance', 'hotplug']
-
