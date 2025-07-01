@@ -65,3 +65,6 @@ system_info:
     templates_dir: /etc/cloud/templates/
     upstart_dir: /etc/init/
   ssh_svcname: ssh
+updates:
+  network:
+    when: ['boot', 'boot-legacy', 'boot-new-instance', 'hotplug']

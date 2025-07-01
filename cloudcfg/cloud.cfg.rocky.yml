@@ -52,3 +52,6 @@ system_info:
     cloud_dir: /var/lib/cloud/
     templates_dir: /etc/cloud/templates/
   ssh_svcname: sshd
+updates:
+  network:
+    when: ['boot', 'boot-legacy', 'boot-new-instance', 'hotplug']
