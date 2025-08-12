@@ -54,4 +54,4 @@ system_info:
   ntp_client: chrony
 updates:
   network:
-    when: ['boot-new-instance']
+    when: ['boot', 'boot-new-instance']
